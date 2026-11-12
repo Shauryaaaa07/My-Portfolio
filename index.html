@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaurya Pratap Singh | Software Engineer & Data Analyst</title>
+  <meta name="description" content="Portfolio of Shaurya Pratap Singh — Software Engineer, AI & Computer Vision Specialist, and Data Analyst." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome 6 for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Mouse Spotlight Glow -->
+  <div id="mouse-spotlight"></div>
+
+  <!-- Interactive Neural Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-badge">&lt;/&gt;</span> Shaurya.dev
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="https://github.com/Shauryaaaa07" target="_blank" class="nav-cta"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      </ul>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>AVAILABLE FOR SDE &amp; DATA ANALYTICS ROLES</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Shaurya Pratap</span>
+        </h1>
+
+        <div class="hero-subtitle-box">
+          <span>&gt; </span>
+          <span id="typewriter-text">Software Engineer</span>
+          <span class="typed-cursor"></span>
+        </div>
+
+        <p class="hero-description">
+          B.Tech in Computer Science &amp; Engineering. I architect high-performance software, real-time Computer Vision pipelines, and intelligent data systems that solve complex real-world challenges.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <span>Explore Projects</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <span>Get In Touch</span>
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <div class="social-pills">
+          <a href="https://github.com/Shauryaaaa07" target="_blank" class="social-pill" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="social-pill" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="javascript:void(0)" onclick="copyEmail()" class="social-pill" title="Copy Email">
+            <i class="fa-solid fa-at"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Portrait Card -->
+      <div class="hero-portrait-card">
+        <div class="portrait-frame">
+          <img src="./assets/profile.jpg" alt="Shaurya Pratap Singh" class="portrait-img" />
+          <div class="portrait-overlay-badge">
+            <div class="badge-info">
+              <h4>Shaurya Pratap Singh</h4>
+              <p>Software Engineer &amp; SIH '24</p>
+            </div>
+            <div class="badge-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== METRICS SECTION ==================== -->
+  <section class="metrics-section">
+    <div class="container metrics-grid">
+      <div class="metric-item">
+        <div class="metric-number">7+</div>
+        <div class="metric-label">Public Repositories</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-number">SIH '24</div>
+        <div class="metric-label">Smart India Hackathon Finalist</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-number">4-Layer</div>
+        <div class="metric-label">Custom CNN Architecture</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-number">100%</div>
+        <div class="metric-label">Verified Open Source Code</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01. Overview</span>
+        <h2 class="section-title">About My Engineering Journey</h2>
+        <p class="section-desc">Transforming complex algorithms and real-world data into clean, scalable software systems.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I am a Computer Science undergraduate focused on the synergy between <b>Core Software Engineering</b>, <b>Computer Vision</b>, and <b>Data Analytics</b>. 
+          </p>
+          <p>
+            My engineering philosophy centers around clean code, algorithmic efficiency, and building intuitive user experiences. From training deep learning models on gesture recognition to participating in national hackathons like <b>Smart India Hackathon (SIH 2024)</b>, I love pushing the boundaries of what code can achieve.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <h5><i class="fa-solid fa-code" style="color: var(--accent-emerald);"></i> Core Systems</h5>
+              <p>Strong foundations in OOP, Data Structures &amp; Algorithms in Python, Java, and C.</p>
+            </div>
+            <div class="highlight-card">
+              <h5><i class="fa-solid fa-eye" style="color: var(--accent-emerald);"></i> Vision &amp; AI</h5>
+              <p>Real-time OpenCV webcam pipelines, CNNs, and AI Prompt Engineering.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Manifesto Window -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">shaurya.manifesto.json</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="token-bracket">{</span></p>
+            <p style="padding-left: 20px;"><span class="token-key">"name"</span>: <span class="token-string">"Shaurya Pratap Singh"</span>,</p>
+            <p style="padding-left: 20px;"><span class="token-key">"degree"</span>: <span class="token-string">"B.Tech Computer Science &amp; Engg"</span>,</p>
+            <p style="padding-left: 20px;"><span class="token-key">"roles"</span>: <span class="token-bracket">[</span></p>
+            <p style="padding-left: 40px;"><span class="token-string">"Software Engineer"</span>,</p>
+            <p style="padding-left: 40px;"><span class="token-string">"Data Analyst"</span>,</p>
+            <p style="padding-left: 40px;"><span class="token-string">"AI Prompt Developer"</span></p>
+            <p style="padding-left: 20px;"><span class="token-bracket">]</span>,</p>
+            <p style="padding-left: 20px;"><span class="token-key">"hackathon"</span>: <span class="token-string">"Smart India Hackathon (SIH '24)"</span>,</p>
+            <p style="padding-left: 20px;"><span class="token-key">"status"</span>: <span class="token-string">"Ready for Production &amp; Internships"</span></p>
+            <p><span class="token-bracket">}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS SECTION ==================== -->
+  <section id="skills" class="section" style="background: rgba(13, 17, 23, 0.3);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02. Capabilities</span>
+        <h2 class="section-title">Technical Arsenal</h2>
+        <p class="section-desc">Technologies, frameworks, and specialized tools I utilize to craft scalable applications.</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="languages">Languages</button>
+        <button class="filter-btn" data-filter="ai-vision">AI &amp; Vision</button>
+        <button class="filter-btn" data-filter="data">Data Analytics</button>
+        <button class="filter-btn" data-filter="tools">Tools &amp; Web</button>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="skills-grid">
+        <!-- Python -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon-wrap" style="color: #3776ab;">
+            <i class="fa-brands fa-python"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Python</h4>
+            <p>Core, Scripting, ML</p>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon-wrap" style="color: #ed8b00;">
+            <i class="fa-brands fa-java"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Java</h4>
+            <p>OOP, Core Architecture</p>
+          </div>
+        </div>
+
+        <!-- C -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon-wrap" style="color: #a8b9cc;">
+            <i class="fa-solid fa-c"></i>
+          </div>
+          <div class="skill-details">
+            <h4>C Language</h4>
+            <p>Procedural, Memory, DSA</p>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card" data-category="languages">
+          <div class="skill-icon-wrap" style="color: #f7df1e;">
+            <i class="fa-brands fa-js"></i>
+          </div>
+          <div class="skill-details">
+            <h4>JavaScript</h4>
+            <p>ES6+, Dynamic DOM, APIs</p>
+          </div>
+        </div>
+
+        <!-- SQL -->
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon-wrap" style="color: #4479a1;">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <div class="skill-details">
+            <h4>SQL</h4>
+            <p>Relational Data &amp; Queries</p>
+          </div>
+        </div>
+
+        <!-- Computer Vision / OpenCV -->
+        <div class="skill-card" data-category="ai-vision">
+          <div class="skill-icon-wrap" style="color: #5c3ee8;">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Computer Vision</h4>
+            <p>OpenCV, Video Streams</p>
+          </div>
+        </div>
+
+        <!-- CNN -->
+        <div class="skill-card" data-category="ai-vision">
+          <div class="skill-icon-wrap" style="color: #2ea043;">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="skill-details">
+            <h4>CNN Architectures</h4>
+            <p>Deep Learning &amp; Detection</p>
+          </div>
+        </div>
+
+        <!-- AI Prompt Developer -->
+        <div class="skill-card" data-category="ai-vision">
+          <div class="skill-icon-wrap" style="color: #00a67e;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="skill-details">
+            <h4>AI Prompt Developer</h4>
+            <p>LLM Prompt Engineering</p>
+          </div>
+        </div>
+
+        <!-- Pandas & NumPy -->
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon-wrap" style="color: #150458;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Data Analytics</h4>
+            <p>Pandas, NumPy, EDA</p>
+          </div>
+        </div>
+
+        <!-- Scikit-Learn -->
+        <div class="skill-card" data-category="data">
+          <div class="skill-icon-wrap" style="color: #f7931e;">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Scikit-Learn</h4>
+            <p>Predictive Modeling</p>
+          </div>
+        </div>
+
+        <!-- HTML5 / CSS3 -->
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon-wrap" style="color: #e34f26;">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <div class="skill-details">
+            <h4>HTML5 / CSS3</h4>
+            <p>Modern Responsive UI</p>
+          </div>
+        </div>
+
+        <!-- Git & GitHub -->
+        <div class="skill-card" data-category="tools">
+          <div class="skill-icon-wrap" style="color: #f05032;">
+            <i class="fa-brands fa-git-alt"></i>
+          </div>
+          <div class="skill-details">
+            <h4>Git &amp; GitHub</h4>
+            <p>Version Control &amp; CI/CD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS SECTION ==================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03. Showcase</span>
+        <h2 class="section-title">Featured Deployments</h2>
+        <p class="section-desc">Selected projects highlighting deep learning, full-stack engineering, and data analytics.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Sign Language Recognition -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-badge">AI &amp; Computer Vision</span>
+              <div class="project-links">
+                <a href="https://github.com/Shauryaaaa07/Sign-Language-Alphabet-Recognition" target="_blank" class="project-link-btn" title="GitHub Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Sign Language Alphabet Recognition</h3>
+            <p class="project-desc">
+              An end-to-end AI-powered finger-spelling recognition system featuring a custom 4-layer CNN, OpenCV live webcam inference pipeline, and interactive Flask accessibility interface for educational assistance.
+            </p>
+            <ul class="project-tech">
+              <li>Python</li>
+              <li>OpenCV</li>
+              <li>Custom CNN</li>
+              <li>Flask</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 2: GeoNexus SIH 2024 -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-badge badge-hackathon">Smart India Hackathon '24</span>
+              <div class="project-links">
+                <a href="https://github.com/Shauryaaaa07/GeoNexus-SIH26227" target="_blank" class="project-link-btn" title="GitHub Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">GeoNexus (SIH Initiative)</h3>
+            <p class="project-desc">
+              National hackathon initiative engineered for Smart India Hackathon. Focuses on predictive data modeling and geospatial pattern analysis to deliver automated analytical insights from complex datasets.
+            </p>
+            <ul class="project-tech">
+              <li>Python</li>
+              <li>Data Analytics</li>
+              <li>Machine Learning</li>
+              <li>Geospatial</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 3: Accident Prediction -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-badge">Machine Learning &amp; Data</span>
+              <div class="project-links">
+                <a href="https://github.com/Shauryaaaa07/Accident_predection_model" target="_blank" class="project-link-btn" title="GitHub Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Accident Survival Prediction Model</h3>
+            <p class="project-desc">
+              Supervised binary classification machine learning pipeline using Logistic Regression to evaluate demographic, behavioral, and safety telemetry for predicting accident survival probabilities.
+            </p>
+            <ul class="project-tech">
+              <li>Python</li>
+              <li>Logistic Regression</li>
+              <li>Scikit-Learn</li>
+              <li>Pandas</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 4: Online Quiz System -->
+        <div class="project-card">
+          <div class="project-body">
+            <div class="project-top">
+              <span class="project-badge">Full-Stack Web</span>
+              <div class="project-links">
+                <a href="https://github.com/Shauryaaaa07/Online_quiz_system" target="_blank" class="project-link-btn" title="GitHub Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Interactive Online Quiz Platform</h3>
+            <p class="project-desc">
+              Responsive web-based testing system with timed evaluations, dynamic question bank generation, automated score calculation, and instantaneous performance feedback visualizer.
+            </p>
+            <ul class="project-tech">
+              <li>JavaScript ES6</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>DOM Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <span class="section-tag">04. What's Next?</span>
+        <h3>Let's Build Something Exceptional</h3>
+        <p>
+          I'm actively looking for Software Engineering (SDE) internships, Data Analytics roles, and exciting AI/ML opportunities. Feel free to reach out!
+        </p>
+
+        <div class="email-copy-box" onclick="copyEmail()">
+          <span class="email-text">shauryaawasthi7007@gmail.com</span>
+          <i class="fa-solid fa-copy copy-icon" title="Copy to clipboard"></i>
+        </div>
+
+        <br />
+
+        <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
+          <a href="mailto:shauryaawasthi7007@gmail.com" class="btn-primary">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Send Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="btn-secondary">
+            <i class="fa-brands fa-linkedin-in"></i>
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="footer-text">
+        Designed &amp; Built with precision by <b>Shaurya Pratap Singh</b> &bull; 2026
+      </p>
+      <p class="footer-text">
+        <a href="https://github.com/Shauryaaaa07" target="_blank" style="color: var(--text-secondary); text-decoration: none;">
+          <i class="fa-brands fa-github"></i> github.com/Shauryaaaa07
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Element -->
+  <div id="toast">✓ Email copied to clipboard!</div>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
