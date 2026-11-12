@@ -3,18 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shaurya Pratap Singh | Software Engineer & Data Analyst</title>
+  <title>Shaurya Pratap Singh — Software Engineer &amp; Data Analyst</title>
   <meta name="description" content="Portfolio of Shaurya Pratap Singh — Software Engineer, AI & Computer Vision Specialist, and Data Analyst." />
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 
-  <!-- Google Fonts: Inter & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-
-  <!-- FontAwesome 6 for Icons -->
+  <!-- FontAwesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Main Stylesheet -->
@@ -22,487 +17,509 @@
 </head>
 <body>
 
-  <!-- Mouse Spotlight Glow -->
-  <div id="mouse-spotlight"></div>
+  <!-- Dynamic Aurora Background Lighting -->
+  <div class="aurora-bg">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <!-- Mouse Spotlight Tracker -->
+  <div id="spotlight"></div>
 
   <!-- Interactive Neural Canvas -->
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="neural-canvas"></canvas>
 
-  <!-- ==================== NAVIGATION ==================== -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-badge">&lt;/&gt;</span> Shaurya.dev
+  <!-- ==================== FLOATING DOCK NAVBAR ==================== -->
+  <header class="navbar-wrap">
+    <nav class="dock-nav">
+      <a href="#hero" class="dock-logo">
+        <span class="dock-logo-dot"></span>
+        <span>shaurya.dev</span>
       </a>
 
-      <ul class="nav-menu">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li><a href="https://github.com/Shauryaaaa07" target="_blank" class="nav-cta"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      <ul class="dock-links">
+        <li><a href="#about" class="dock-link">About</a></li>
+        <li><a href="#skills" class="dock-link">Arsenal</a></li>
+        <li><a href="#projects" class="dock-link">Deployments</a></li>
+        <li><a href="#contact" class="dock-link">Contact</a></li>
       </ul>
 
-      <button class="mobile-toggle" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ==================== HERO SECTION ==================== -->
-  <section id="hero" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="status-pill">
-          <span class="pulse-dot"></span>
-          <span>AVAILABLE FOR SDE &amp; DATA ANALYTICS ROLES</span>
-        </div>
-
-        <h1 class="hero-title">
-          Hi, I'm <span class="gradient-text">Shaurya Pratap</span>
-        </h1>
-
-        <div class="hero-subtitle-box">
-          <span>&gt; </span>
-          <span id="typewriter-text">Software Engineer</span>
-          <span class="typed-cursor"></span>
-        </div>
-
-        <p class="hero-description">
-          B.Tech in Computer Science &amp; Engineering. I architect high-performance software, real-time Computer Vision pipelines, and intelligent data systems that solve complex real-world challenges.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary">
-            <span>Explore Projects</span>
-            <i class="fa-solid fa-arrow-down"></i>
-          </a>
-          <a href="#contact" class="btn-secondary">
-            <span>Get In Touch</span>
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </div>
-
-        <div class="social-pills">
-          <a href="https://github.com/Shauryaaaa07" target="_blank" class="social-pill" title="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="social-pill" title="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="javascript:void(0)" onclick="copyEmail()" class="social-pill" title="Copy Email">
-            <i class="fa-solid fa-at"></i>
-          </a>
-        </div>
+      <!-- Theme Palette Switcher -->
+      <div class="theme-switch-group" title="Switch Accent Palette">
+        <button class="theme-dot-btn dot-green-theme" onclick="setTheme('green')" title="Emerald Green"></button>
+        <button class="theme-dot-btn dot-blue-theme" onclick="setTheme('blue')" title="Electric Blue"></button>
+        <button class="theme-dot-btn dot-violet-theme" onclick="setTheme('violet')" title="Cyber Violet"></button>
       </div>
 
-      <!-- Hero Portrait Card -->
-      <div class="hero-portrait-card">
-        <div class="portrait-frame">
-          <img src="./assets/profile.jpg" alt="Shaurya Pratap Singh" class="portrait-img" />
-          <div class="portrait-overlay-badge">
-            <div class="badge-info">
-              <h4>Shaurya Pratap Singh</h4>
-              <p>Software Engineer &amp; Data Analyst</p>
+      <a href="https://github.com/Shauryaaaa07" target="_blank" class="dock-cta">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==================== HERO BENTO SECTION ==================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="bento-hero-grid">
+          <!-- Main Hero Bento Box -->
+          <div class="bento-card hero-main-card">
+            <div>
+              <div class="hero-header-tags">
+                <div class="live-badge">
+                  <span class="live-beacon"></span>
+                  <span>OPEN FOR SDE &amp; DATA ROLES</span>
+                </div>
+                <div class="time-badge">
+                  <i class="fa-regular fa-clock"></i>
+                  <span id="live-clock">--:--:-- IST</span>
+                </div>
+              </div>
+
+              <h1 class="hero-title">
+                Hi, I'm <br />
+                <span class="hero-highlight">Shaurya Pratap</span>
+              </h1>
+
+              <div class="hero-rotator">
+                <span>&gt;&nbsp;</span>
+                <span id="typewriter-box">Software Engineer</span>
+                <span class="typing-cursor"></span>
+              </div>
+
+              <p class="hero-bio">
+                B.Tech in Computer Science &amp; Engineering. I build high-performance software systems, real-time Computer Vision pipelines, and intelligent predictive data models engineered for real-world impact.
+              </p>
             </div>
-            <div class="badge-icon">
-              <i class="fa-solid fa-shield-halved"></i>
+
+            <div class="hero-cta-row">
+              <a href="#projects" class="btn-glow">
+                <span>Inspect Work</span>
+                <i class="fa-solid fa-arrow-down"></i>
+              </a>
+              <a href="javascript:void(0)" onclick="copyEmail()" class="btn-glass">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Email</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Portrait Bento Card -->
+          <div class="bento-card hero-portrait-bento">
+            <div class="portrait-glow-ring">
+              <img src="./assets/profile.jpg" alt="Shaurya Pratap Singh" class="portrait-img" />
+            </div>
+
+            <div class="portrait-meta">
+              <h3>Shaurya Pratap Singh</h3>
+              <p>Software Engineer &bull; AI Specialist</p>
+
+              <div class="social-strip">
+                <a href="https://github.com/Shauryaaaa07" target="_blank" class="social-btn" title="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="social-btn" title="LinkedIn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:shauryapratapsingh723@gmail.com" class="social-btn" title="Direct Email">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==================== METRICS SECTION ==================== -->
-  <section class="metrics-section">
-    <div class="container metrics-grid">
-      <div class="metric-item">
-        <div class="metric-number">7+</div>
-        <div class="metric-label">Public Repositories</div>
+        <!-- ==================== BENTO ROW 2: METRICS ==================== -->
+        <div class="bento-row-metrics">
+          <div class="bento-card metric-bento">
+            <div class="metric-val">7+</div>
+            <div class="metric-label">Public Repositories</div>
+          </div>
+          <div class="bento-card metric-bento">
+            <div class="metric-val">4-Layer</div>
+            <div class="metric-label">Custom CNN Architecture</div>
+          </div>
+          <div class="bento-card metric-bento">
+            <div class="metric-val">100%</div>
+            <div class="metric-label">Verified Open-Source Code</div>
+          </div>
+          <div class="bento-card metric-bento">
+            <div class="metric-val">4+</div>
+            <div class="metric-label">Core System Deployments</div>
+          </div>
+        </div>
       </div>
-      <div class="metric-item">
-        <div class="metric-number">4+</div>
-        <div class="metric-label">Full-Stack &amp; AI Deployments</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-number">4-Layer</div>
-        <div class="metric-label">Custom CNN Architecture</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-number">100%</div>
-        <div class="metric-label">Verified Open Source Code</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== ABOUT SECTION ==================== -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">01. Overview</span>
-        <h2 class="section-title">About My Engineering Journey</h2>
-        <p class="section-desc">Transforming complex algorithms and real-world data into clean, scalable software systems.</p>
+    <!-- ==================== INFINITE TICKER MARQUEE ==================== -->
+    <section class="ticker-section">
+      <div class="ticker-track">
+        <div class="ticker-item"><i class="fa-brands fa-python"></i> PYTHON</div>
+        <div class="ticker-item"><i class="fa-brands fa-java"></i> JAVA</div>
+        <div class="ticker-item"><i class="fa-solid fa-c"></i> C LANGUAGE</div>
+        <div class="ticker-item"><i class="fa-brands fa-js"></i> JAVASCRIPT</div>
+        <div class="ticker-item"><i class="fa-solid fa-database"></i> SQL</div>
+        <div class="ticker-item"><i class="fa-solid fa-camera"></i> OPENCV</div>
+        <div class="ticker-item"><i class="fa-solid fa-brain"></i> CNN ARCHITECTURES</div>
+        <div class="ticker-item"><i class="fa-solid fa-wand-magic-sparkles"></i> AI PROMPT ENGINEERING</div>
+        <div class="ticker-item"><i class="fa-solid fa-chart-line"></i> PANDAS &amp; NUMPY</div>
+        <div class="ticker-item"><i class="fa-brands fa-html5"></i> HTML5 &amp; CSS3</div>
+        <div class="ticker-item"><i class="fa-brands fa-git-alt"></i> GIT &amp; GITHUB</div>
+        <!-- Duplicate for Infinite Loop -->
+        <div class="ticker-item"><i class="fa-brands fa-python"></i> PYTHON</div>
+        <div class="ticker-item"><i class="fa-brands fa-java"></i> JAVA</div>
+        <div class="ticker-item"><i class="fa-solid fa-c"></i> C LANGUAGE</div>
+        <div class="ticker-item"><i class="fa-brands fa-js"></i> JAVASCRIPT</div>
+        <div class="ticker-item"><i class="fa-solid fa-database"></i> SQL</div>
+        <div class="ticker-item"><i class="fa-solid fa-camera"></i> OPENCV</div>
+        <div class="ticker-item"><i class="fa-solid fa-brain"></i> CNN ARCHITECTURES</div>
+        <div class="ticker-item"><i class="fa-solid fa-wand-magic-sparkles"></i> AI PROMPT ENGINEERING</div>
+        <div class="ticker-item"><i class="fa-solid fa-chart-line"></i> PANDAS &amp; NUMPY</div>
+        <div class="ticker-item"><i class="fa-brands fa-html5"></i> HTML5 &amp; CSS3</div>
+        <div class="ticker-item"><i class="fa-brands fa-git-alt"></i> GIT &amp; GITHUB</div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT & INTERACTIVE CODE RUNNER ==================== -->
+    <section id="about" class="container" style="padding-top: 60px;">
+      <div class="section-head">
+        <span class="head-pill">01. Overview</span>
+        <h2 class="head-title">Engineering Philosophy</h2>
+        <p class="head-desc">Blending algorithmic problem solving with deep vision systems and modern data analytics.</p>
       </div>
 
-      <div class="about-grid">
-        <div class="about-text">
+      <div class="bento-about-grid">
+        <div class="bento-card about-bento-text">
+          <h3>Architecting Clean, Purpose-Driven Software</h3>
           <p>
-            I am a Computer Science undergraduate focused on the synergy between <b>Core Software Engineering</b>, <b>Computer Vision</b>, and <b>Data Analytics</b>. 
+            I am a Computer Science undergraduate focused on the intersection of <b>Software Engineering</b>, <b>Computer Vision</b>, and <b>Data Analytics</b>.
           </p>
           <p>
-            My engineering philosophy centers around clean code, algorithmic efficiency, and building intuitive user experiences. From training deep learning models on gesture recognition to designing predictive data analytics engines, I love pushing the boundaries of what code can achieve.
+            Whether implementing convolutional neural networks for real-time gesture tracking, building predictive machine learning engines, or authoring scalable full-stack web applications, I prioritize maintainable architectures and performance.
           </p>
 
-          <div class="about-highlights">
-            <div class="highlight-card">
-              <h5><i class="fa-solid fa-code" style="color: var(--accent-emerald);"></i> Core Systems</h5>
-              <p>Strong foundations in OOP, Data Structures &amp; Algorithms in Python, Java, and C.</p>
+          <div class="highlight-chips">
+            <div class="chip-box">
+              <h4><i class="fa-solid fa-microchip"></i> System Architecture</h4>
+              <p>Strong OOP, DSA, clean memory handling in Python, Java, and C.</p>
             </div>
-            <div class="highlight-card">
-              <h5><i class="fa-solid fa-eye" style="color: var(--accent-emerald);"></i> Vision &amp; AI</h5>
-              <p>Real-time OpenCV webcam pipelines, CNNs, and AI Prompt Engineering.</p>
+            <div class="chip-box">
+              <h4><i class="fa-solid fa-eye"></i> Vision &amp; AI</h4>
+              <p>OpenCV video streaming pipelines, 4-layer CNNs, and LLM prompting.</p>
             </div>
           </div>
         </div>
 
-        <!-- Interactive Manifesto Window -->
-        <div class="terminal-window">
-          <div class="terminal-header">
-            <span class="terminal-dot dot-red"></span>
-            <span class="terminal-dot dot-yellow"></span>
-            <span class="terminal-dot dot-green"></span>
-            <span class="terminal-title">shaurya.manifesto.json</span>
+        <!-- Interactive Terminal Bento Card -->
+        <div class="bento-card code-terminal">
+          <div class="term-topbar">
+            <div class="term-dots">
+              <span class="term-dot t-red"></span>
+              <span class="term-dot t-yellow"></span>
+              <span class="term-dot t-green"></span>
+            </div>
+            <div class="term-tabs">
+              <button class="term-tab active" data-pane="manifesto">manifesto.ts</button>
+              <button class="term-tab" data-pane="skills">skills.json</button>
+              <button class="term-tab" data-pane="architecture">vision_pipeline.py</button>
+            </div>
           </div>
-          <div class="terminal-body">
-            <p><span class="token-bracket">{</span></p>
-            <p style="padding-left: 20px;"><span class="token-key">"name"</span>: <span class="token-string">"Shaurya Pratap Singh"</span>,</p>
-            <p style="padding-left: 20px;"><span class="token-key">"degree"</span>: <span class="token-string">"B.Tech Computer Science &amp; Engg"</span>,</p>
-            <p style="padding-left: 20px;"><span class="token-key">"roles"</span>: <span class="token-bracket">[</span></p>
-            <p style="padding-left: 40px;"><span class="token-string">"Software Engineer"</span>,</p>
-            <p style="padding-left: 40px;"><span class="token-string">"Data Analyst"</span>,</p>
-            <p style="padding-left: 40px;"><span class="token-string">"AI Prompt Developer"</span></p>
-            <p style="padding-left: 20px;"><span class="token-bracket">]</span>,</p>
-            <p style="padding-left: 20px;"><span class="token-key">"focus"</span>: <span class="token-string">"Computer Vision, AI &amp; Analytics"</span>,</p>
-            <p style="padding-left: 20px;"><span class="token-key">"status"</span>: <span class="token-string">"Ready for Production &amp; Internships"</span></p>
-            <p><span class="token-bracket">}</span></p>
+
+          <div class="term-content" id="term-content">
+<pre><code><span class="k-kw">const</span> <span class="k-fn">shaurya</span> = {
+  <span class="k-prop">name</span>: <span class="k-str">"Shaurya Pratap Singh"</span>,
+  <span class="k-prop">status</span>: <span class="k-str">"Open to SDE &amp; Data Roles"</span>,
+  <span class="k-prop">languages</span>: [<span class="k-str">"Python"</span>, <span class="k-str">"Java"</span>, <span class="k-str">"C"</span>, <span class="k-str">"JavaScript"</span>, <span class="k-str">"SQL"</span>],
+  <span class="k-prop">specialization</span>: [<span class="k-str">"Computer Vision"</span>, <span class="k-str">"CNNs"</span>, <span class="k-str">"Prompt Eng"</span>, <span class="k-str">"Analytics"</span>],
+  <span class="k-prop">philosophy</span>: <span class="k-str">"Clean Code, High Performance &amp; Human-Centric AI"</span>
+};</code></pre>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== SKILLS SECTION ==================== -->
-  <section id="skills" class="section" style="background: rgba(13, 17, 23, 0.3);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">02. Capabilities</span>
-        <h2 class="section-title">Technical Arsenal</h2>
-        <p class="section-desc">Technologies, frameworks, and specialized tools I utilize to craft scalable applications.</p>
+    <!-- ==================== SKILLS ARSENAL ==================== -->
+    <section id="skills" class="container">
+      <div class="section-head">
+        <span class="head-pill">02. Arsenal</span>
+        <h2 class="head-title">Technical Capabilities</h2>
+        <p class="head-desc">Languages, libraries, and frameworks I use to build scalable production code.</p>
       </div>
 
-      <!-- Filter Controls -->
-      <div class="skills-filter">
-        <button class="filter-btn active" data-filter="all">All Skills</button>
-        <button class="filter-btn" data-filter="languages">Languages</button>
-        <button class="filter-btn" data-filter="ai-vision">AI &amp; Vision</button>
-        <button class="filter-btn" data-filter="data">Data Analytics</button>
-        <button class="filter-btn" data-filter="tools">Tools &amp; Web</button>
+      <div class="skills-tab-bar">
+        <button class="tab-pill-btn active" data-category="all">All Skills</button>
+        <button class="tab-pill-btn" data-category="languages">Languages</button>
+        <button class="tab-pill-btn" data-category="ai">AI &amp; Vision</button>
+        <button class="tab-pill-btn" data-category="data">Data Analytics</button>
+        <button class="tab-pill-btn" data-category="tools">Tools &amp; Web</button>
       </div>
 
-      <!-- Skills Grid -->
-      <div class="skills-grid">
+      <div class="skills-bento-grid">
         <!-- Python -->
-        <div class="skill-card" data-category="languages">
-          <div class="skill-icon-wrap" style="color: #3776ab;">
-            <i class="fa-brands fa-python"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="languages">
+          <div class="tile-icon" style="color: #3776ab;"><i class="fa-brands fa-python"></i></div>
+          <div class="tile-info">
             <h4>Python</h4>
             <p>Core, Scripting, ML</p>
           </div>
         </div>
 
         <!-- Java -->
-        <div class="skill-card" data-category="languages">
-          <div class="skill-icon-wrap" style="color: #ed8b00;">
-            <i class="fa-brands fa-java"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="languages">
+          <div class="tile-icon" style="color: #ed8b00;"><i class="fa-brands fa-java"></i></div>
+          <div class="tile-info">
             <h4>Java</h4>
             <p>OOP, Core Architecture</p>
           </div>
         </div>
 
         <!-- C -->
-        <div class="skill-card" data-category="languages">
-          <div class="skill-icon-wrap" style="color: #a8b9cc;">
-            <i class="fa-solid fa-c"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="languages">
+          <div class="tile-icon" style="color: #a8b9cc;"><i class="fa-solid fa-c"></i></div>
+          <div class="tile-info">
             <h4>C Language</h4>
-            <p>Procedural, Memory, DSA</p>
+            <p>Procedural &amp; Memory</p>
           </div>
         </div>
 
         <!-- JavaScript -->
-        <div class="skill-card" data-category="languages">
-          <div class="skill-icon-wrap" style="color: #f7df1e;">
-            <i class="fa-brands fa-js"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="languages">
+          <div class="tile-icon" style="color: #f7df1e;"><i class="fa-brands fa-js"></i></div>
+          <div class="tile-info">
             <h4>JavaScript</h4>
             <p>ES6+, Dynamic DOM, APIs</p>
           </div>
         </div>
 
         <!-- SQL -->
-        <div class="skill-card" data-category="data">
-          <div class="skill-icon-wrap" style="color: #4479a1;">
-            <i class="fa-solid fa-database"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="data">
+          <div class="tile-icon" style="color: #4479a1;"><i class="fa-solid fa-database"></i></div>
+          <div class="tile-info">
             <h4>SQL</h4>
             <p>Relational Data &amp; Queries</p>
           </div>
         </div>
 
-        <!-- Computer Vision / OpenCV -->
-        <div class="skill-card" data-category="ai-vision">
-          <div class="skill-icon-wrap" style="color: #5c3ee8;">
-            <i class="fa-solid fa-camera"></i>
-          </div>
-          <div class="skill-details">
+        <!-- OpenCV -->
+        <div class="bento-card skill-bento-tile" data-category="ai">
+          <div class="tile-icon" style="color: #5c3ee8;"><i class="fa-solid fa-camera"></i></div>
+          <div class="tile-info">
             <h4>Computer Vision</h4>
-            <p>OpenCV, Video Streams</p>
+            <p>OpenCV Live Tracking</p>
           </div>
         </div>
 
         <!-- CNN -->
-        <div class="skill-card" data-category="ai-vision">
-          <div class="skill-icon-wrap" style="color: #2ea043;">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <div class="skill-details">
-            <h4>CNN Architectures</h4>
-            <p>Deep Learning &amp; Detection</p>
+        <div class="bento-card skill-bento-tile" data-category="ai">
+          <div class="tile-icon" style="color: #2ea043;"><i class="fa-solid fa-brain"></i></div>
+          <div class="tile-info">
+            <h4>Custom CNNs</h4>
+            <p>Deep Learning &amp; Gestures</p>
           </div>
         </div>
 
-        <!-- AI Prompt Developer -->
-        <div class="skill-card" data-category="ai-vision">
-          <div class="skill-icon-wrap" style="color: #00a67e;">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </div>
-          <div class="skill-details">
-            <h4>AI Prompt Developer</h4>
-            <p>LLM Prompt Engineering</p>
+        <!-- Prompt Eng -->
+        <div class="bento-card skill-bento-tile" data-category="ai">
+          <div class="tile-icon" style="color: #00a67e;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="tile-info">
+            <h4>Prompt Developer</h4>
+            <p>LLM Context &amp; Agents</p>
           </div>
         </div>
 
         <!-- Pandas & NumPy -->
-        <div class="skill-card" data-category="data">
-          <div class="skill-icon-wrap" style="color: #150458;">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="data">
+          <div class="tile-icon" style="color: #150458;"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="tile-info">
             <h4>Data Analytics</h4>
             <p>Pandas, NumPy, EDA</p>
           </div>
         </div>
 
         <!-- Scikit-Learn -->
-        <div class="skill-card" data-category="data">
-          <div class="skill-icon-wrap" style="color: #f7931e;">
-            <i class="fa-solid fa-diagram-project"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="data">
+          <div class="tile-icon" style="color: #f7931e;"><i class="fa-solid fa-diagram-project"></i></div>
+          <div class="tile-info">
             <h4>Scikit-Learn</h4>
-            <p>Predictive Modeling</p>
+            <p>Predictive ML Models</p>
           </div>
         </div>
 
-        <!-- HTML5 / CSS3 -->
-        <div class="skill-card" data-category="tools">
-          <div class="skill-icon-wrap" style="color: #e34f26;">
-            <i class="fa-brands fa-html5"></i>
-          </div>
-          <div class="skill-details">
-            <h4>HTML5 / CSS3</h4>
+        <!-- HTML / CSS -->
+        <div class="bento-card skill-bento-tile" data-category="tools">
+          <div class="tile-icon" style="color: #e34f26;"><i class="fa-brands fa-html5"></i></div>
+          <div class="tile-info">
+            <h4>HTML5 &amp; CSS3</h4>
             <p>Modern Responsive UI</p>
           </div>
         </div>
 
         <!-- Git & GitHub -->
-        <div class="skill-card" data-category="tools">
-          <div class="skill-icon-wrap" style="color: #f05032;">
-            <i class="fa-brands fa-git-alt"></i>
-          </div>
-          <div class="skill-details">
+        <div class="bento-card skill-bento-tile" data-category="tools">
+          <div class="tile-icon" style="color: #f05032;"><i class="fa-brands fa-git-alt"></i></div>
+          <div class="tile-info">
             <h4>Git &amp; GitHub</h4>
             <p>Version Control &amp; CI/CD</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== PROJECTS SECTION ==================== -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">03. Showcase</span>
-        <h2 class="section-title">Featured Deployments</h2>
-        <p class="section-desc">Selected projects highlighting deep learning, full-stack engineering, and data analytics.</p>
+    <!-- ==================== FEATURED DEPLOYMENTS ==================== -->
+    <section id="projects" class="container">
+      <div class="section-head">
+        <span class="head-pill">03. Deployments</span>
+        <h2 class="head-title">Featured Engineering Work</h2>
+        <p class="head-desc">Live open-source systems highlighting deep learning, full-stack engineering, and data analytics.</p>
       </div>
 
-      <div class="projects-grid">
-        <!-- Project 1: Sign Language Recognition -->
-        <div class="project-card">
-          <div class="project-body">
-            <div class="project-top">
-              <span class="project-badge">AI &amp; Computer Vision</span>
-              <div class="project-links">
-                <a href="https://github.com/Shauryaaaa07/Sign-Language-Alphabet-Recognition" target="_blank" class="project-link-btn" title="GitHub Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">Sign Language Alphabet Recognition</h3>
-            <p class="project-desc">
-              An end-to-end AI-powered finger-spelling recognition system featuring a custom 4-layer CNN, OpenCV live webcam inference pipeline, and interactive Flask accessibility interface for educational assistance.
-            </p>
-            <ul class="project-tech">
-              <li>Python</li>
-              <li>OpenCV</li>
-              <li>Custom CNN</li>
-              <li>Flask</li>
-            </ul>
+      <div class="projects-bento-grid">
+        <!-- Project 1 -->
+        <div class="bento-card project-bento-card">
+          <div class="proj-top-bar">
+            <span class="proj-category">AI &amp; Computer Vision</span>
+            <a href="https://github.com/Shauryaaaa07/Sign-Language-Alphabet-Recognition" target="_blank" class="proj-action-btn" title="Inspect Code">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
+          <h3 class="proj-name">Sign Language Alphabet Recognition</h3>
+          <p class="proj-desc">
+            An end-to-end AI-powered finger-spelling recognition system featuring a custom 4-layer CNN, OpenCV live webcam inference pipeline, and interactive Flask accessibility interface for educational assistance.
+          </p>
+          <ul class="proj-stack-pills">
+            <li>Python</li>
+            <li>OpenCV</li>
+            <li>Custom CNN</li>
+            <li>Flask</li>
+          </ul>
         </div>
 
-        <!-- Project 2: GeoNexus Spatial Analytics -->
-        <div class="project-card">
-          <div class="project-body">
-            <div class="project-top">
-              <span class="project-badge">Geospatial &amp; Analytics</span>
-              <div class="project-links">
-                <a href="https://github.com/Shauryaaaa07/GeoNexus-SIH26227" target="_blank" class="project-link-btn" title="GitHub Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">GeoNexus Spatial Analytics Engine</h3>
-            <p class="project-desc">
-              Intelligent geospatial analytics engine combining predictive data models with automated statistical processing to translate complex spatial datasets into actionable visual insights.
-            </p>
-            <ul class="project-tech">
-              <li>Python</li>
-              <li>Data Analytics</li>
-              <li>Machine Learning</li>
-              <li>Geospatial</li>
-            </ul>
+        <!-- Project 2 -->
+        <div class="bento-card project-bento-card">
+          <div class="proj-top-bar">
+            <span class="proj-category">Geospatial Analytics</span>
+            <a href="https://github.com/Shauryaaaa07/GeoNexus-SIH26227" target="_blank" class="proj-action-btn" title="Inspect Code">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
+          <h3 class="proj-name">GeoNexus Spatial Analytics Engine</h3>
+          <p class="proj-desc">
+            Intelligent geospatial analytics engine combining predictive data models with automated statistical processing to translate complex spatial datasets into actionable visual insights.
+          </p>
+          <ul class="proj-stack-pills">
+            <li>Python</li>
+            <li>Data Analytics</li>
+            <li>Machine Learning</li>
+            <li>Geospatial</li>
+          </ul>
         </div>
 
-        <!-- Project 3: Accident Prediction -->
-        <div class="project-card">
-          <div class="project-body">
-            <div class="project-top">
-              <span class="project-badge">Machine Learning &amp; Data</span>
-              <div class="project-links">
-                <a href="https://github.com/Shauryaaaa07/Accident_predection_model" target="_blank" class="project-link-btn" title="GitHub Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">Accident Survival Prediction Model</h3>
-            <p class="project-desc">
-              Supervised binary classification machine learning pipeline using Logistic Regression to evaluate demographic, behavioral, and safety telemetry for predicting accident survival probabilities.
-            </p>
-            <ul class="project-tech">
-              <li>Python</li>
-              <li>Logistic Regression</li>
-              <li>Scikit-Learn</li>
-              <li>Pandas</li>
-            </ul>
+        <!-- Project 3 -->
+        <div class="bento-card project-bento-card">
+          <div class="proj-top-bar">
+            <span class="proj-category">Machine Learning</span>
+            <a href="https://github.com/Shauryaaaa07/Accident_predection_model" target="_blank" class="proj-action-btn" title="Inspect Code">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
+          <h3 class="proj-name">Accident Survival Prediction Model</h3>
+          <p class="proj-desc">
+            Supervised binary classification machine learning pipeline using Logistic Regression to evaluate demographic, behavioral, and safety telemetry for predicting accident survival probabilities.
+          </p>
+          <ul class="proj-stack-pills">
+            <li>Python</li>
+            <li>Logistic Regression</li>
+            <li>Scikit-Learn</li>
+            <li>Pandas</li>
+          </ul>
         </div>
 
-        <!-- Project 4: Online Quiz System -->
-        <div class="project-card">
-          <div class="project-body">
-            <div class="project-top">
-              <span class="project-badge">Full-Stack Web</span>
-              <div class="project-links">
-                <a href="https://github.com/Shauryaaaa07/Online_quiz_system" target="_blank" class="project-link-btn" title="GitHub Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">Interactive Online Quiz Platform</h3>
-            <p class="project-desc">
-              Responsive web-based testing system with timed evaluations, dynamic question bank generation, automated score calculation, and instantaneous performance feedback visualizer.
-            </p>
-            <ul class="project-tech">
-              <li>JavaScript ES6</li>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>DOM Analytics</li>
-            </ul>
+        <!-- Project 4 -->
+        <div class="bento-card project-bento-card">
+          <div class="proj-top-bar">
+            <span class="proj-category">Full-Stack Web</span>
+            <a href="https://github.com/Shauryaaaa07/Online_quiz_system" target="_blank" class="proj-action-btn" title="Inspect Code">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
+          <h3 class="proj-name">Interactive Online Quiz Platform</h3>
+          <p class="proj-desc">
+            Responsive web-based testing system with timed evaluations, dynamic question bank generation, automated score calculation, and instantaneous performance feedback visualizer.
+          </p>
+          <ul class="proj-stack-pills">
+            <li>JavaScript ES6</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>DOM Analytics</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== CONTACT SECTION ==================== -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="contact-card">
-        <span class="section-tag">04. What's Next?</span>
-        <h3>Let's Build Something Exceptional</h3>
-        <p>
-          I'm actively looking for Software Engineering (SDE) internships, Data Analytics roles, and exciting AI/ML opportunities. Feel free to reach out!
-        </p>
+    <!-- ==================== CONTACT BENTO ==================== -->
+    <section id="contact" class="container">
+      <div class="section-head">
+        <span class="head-pill">04. Connection</span>
+        <h2 class="head-title">Let's Build Together</h2>
+        <p class="head-desc">I am actively interviewing for Software Engineering (SDE) and Data Analyst roles.</p>
+      </div>
 
-        <div class="email-copy-box" onclick="copyEmail()">
-          <span class="email-text">shauryaawasthi7007@gmail.com</span>
-          <i class="fa-solid fa-copy copy-icon" title="Copy to clipboard"></i>
+      <div class="contact-bento-grid">
+        <div class="bento-card contact-bento-info">
+          <h3>Get in Touch Directly</h3>
+          <p>
+            Have an open software engineering role, internship opportunity, or project idea? Drop a line and let's discuss how I can add immediate value to your engineering team.
+          </p>
+
+          <div class="email-pill-clicker" onclick="copyEmail()" title="Click to Copy Email">
+            <i class="fa-solid fa-copy"></i>
+            <span>shauryapratapsingh723@gmail.com</span>
+          </div>
+
+          <div class="hero-cta-row">
+            <a href="mailto:shauryapratapsingh723@gmail.com" class="btn-glow">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Open Mail Client</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="btn-glass">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span>LinkedIn Profile</span>
+            </a>
+          </div>
         </div>
 
-        <br />
-
-        <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
-          <a href="mailto:shauryaawasthi7007@gmail.com" class="btn-primary">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span>Send Email</span>
-          </a>
-          <a href="https://www.linkedin.com/in/shauryapratap7" target="_blank" class="btn-secondary">
-            <i class="fa-brands fa-linkedin-in"></i>
-            <span>Connect on LinkedIn</span>
-          </a>
+        <!-- Interactive Quick Message Box -->
+        <div class="bento-card">
+          <form class="quick-form" onsubmit="handleContactSubmit(event)">
+            <input type="text" id="sender-name" class="form-input" placeholder="Your Name / Company" required />
+            <input type="email" id="sender-email" class="form-input" placeholder="Your Email Address" required />
+            <textarea id="sender-message" class="form-input" placeholder="Your Message or Role Description..." required></textarea>
+            <button type="submit" class="btn-glow" style="justify-content: center; width: 100%; border: none; cursor: pointer;">
+              <span>Send Message</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <p class="footer-text">
-        Designed &amp; Built with precision by <b>Shaurya Pratap Singh</b> &bull; 2026
-      </p>
-      <p class="footer-text">
-        <a href="https://github.com/Shauryaaaa07" target="_blank" style="color: var(--text-secondary); text-decoration: none;">
-          <i class="fa-brands fa-github"></i> github.com/Shauryaaaa07
+  <footer class="footer-bar">
+    <div class="container">
+      <p>
+        Architected with precision by <b>Shaurya Pratap Singh</b> &bull;
+        <a href="https://github.com/Shauryaaaa07" target="_blank" style="color: var(--text-muted); text-decoration: none; margin-left: 8px;">
+          github.com/Shauryaaaa07
         </a>
       </p>
     </div>
   </footer>
 
-  <!-- Toast Element -->
-  <div id="toast">✓ Email copied to clipboard!</div>
+  <!-- Toast Notification -->
+  <div id="toast-notification">✓ Email copied to clipboard!</div>
 
   <!-- Main JavaScript -->
   <script src="script.js"></script>

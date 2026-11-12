@@ -1,20 +1,34 @@
 /**
  * SHAURYA PRATAP SINGH - PORTFOLIO INTERACTIVITY
- * High-performance smooth animations, Neural Canvas & Micro-interactions
+ * 60 FPS Neural Canvas, Live IST Clock, Terminal Tabs, 3D Tilt & Micro-Interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mouse Spotlight Tracker
-  const spotlight = document.getElementById('mouse-spotlight');
+  // 1. Live Indian Standard Time (IST) Clock
+  function updateClock() {
+    const clockEl = document.getElementById('live-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    clockEl.textContent = `${now.toLocaleTimeString('en-US', options)} IST`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // 2. Mouse Spotlight Tracker
   window.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    document.documentElement.style.setProperty('--mouse-x', `${x}px`);
-    document.documentElement.style.setProperty('--mouse-y', `${y}px`);
+    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
   });
 
-  // 2. High-Performance Neural Canvas
-  const canvas = document.getElementById('bg-canvas');
+  // 3. Neural Particle Canvas
+  const canvas = document.getElementById('neural-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
@@ -26,39 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const particles = [];
-    const particleCount = Math.min(Math.floor(width / 20), 65);
+    const count = Math.min(Math.floor(width / 20), 70);
 
     class Particle {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.45;
-        this.vy = (Math.random() - 0.5) * 0.45;
-        this.radius = Math.random() * 1.5 + 1;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.r = Math.random() * 1.6 + 1;
       }
-
       update() {
         this.x += this.vx;
         this.y += this.vy;
-
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
       }
-
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#2ea043';
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--theme-accent').trim() || '#2ea043';
         ctx.fill();
       }
     }
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+    for (let i = 0; i < count; i++) particles.push(new Particle());
 
-    function renderCanvas() {
+    function loop() {
       ctx.clearRect(0, 0, width, height);
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--theme-accent').trim() || '#2ea043';
 
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
@@ -67,135 +77,170 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const d = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 110) {
+          if (d < 115) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(46, 160, 67, ${0.18 * (1 - dist / 110)})`;
+            ctx.strokeStyle = `rgba(46, 160, 67, ${0.16 * (1 - d / 115)})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
       }
-      requestAnimationFrame(renderCanvas);
+      requestAnimationFrame(loop);
     }
-    renderCanvas();
+    loop();
   }
 
-  // 3. Dynamic Rotating Typewriter Effect
-  const typeTarget = document.getElementById('typewriter-text');
+  // 4. Rotating Typewriter
+  const typeTarget = document.getElementById('typewriter-box');
   if (typeTarget) {
     const roles = [
       'Software Engineer',
       'AI & Computer Vision Specialist',
       'Data Analyst',
       'AI Prompt Developer',
-      'B.Tech CSE @ Problem Solver'
+      'Full-Stack Developer'
     ];
-    let roleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
+    let rIdx = 0, cIdx = 0, isDeleting = false, speed = 100;
 
-    function typeLoop() {
-      const currentRole = roles[roleIdx];
+    function runTypewriter() {
+      const current = roles[rIdx];
       if (isDeleting) {
-        typeTarget.textContent = currentRole.substring(0, charIdx - 1);
-        charIdx--;
-        typingSpeed = 40;
+        typeTarget.textContent = current.substring(0, cIdx - 1);
+        cIdx--;
+        speed = 35;
       } else {
-        typeTarget.textContent = currentRole.substring(0, charIdx + 1);
-        charIdx++;
-        typingSpeed = 90;
+        typeTarget.textContent = current.substring(0, cIdx + 1);
+        cIdx++;
+        speed = 85;
       }
 
-      if (!isDeleting && charIdx === currentRole.length) {
-        typingSpeed = 1800; // Pause at full word
+      if (!isDeleting && cIdx === current.length) {
+        speed = 1900;
         isDeleting = true;
-      } else if (isDeleting && charIdx === 0) {
+      } else if (isDeleting && cIdx === 0) {
         isDeleting = false;
-        roleIdx = (roleIdx + 1) % roles.length;
-        typingSpeed = 400; // Pause before typing next
+        rIdx = (rIdx + 1) % roles.length;
+        speed = 400;
       }
-
-      setTimeout(typeLoop, typingSpeed);
+      setTimeout(runTypewriter, speed);
     }
-    typeLoop();
+    runTypewriter();
   }
 
-  // 4. Skills Filter
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
+  // 5. Interactive Terminal Tabs
+  const termTabs = document.querySelectorAll('.term-tab');
+  const codePanes = {
+    manifesto: `<span class="k-kw">const</span> <span class="k-fn">shaurya</span> = {
+  <span class="k-prop">name</span>: <span class="k-str">"Shaurya Pratap Singh"</span>,
+  <span class="k-prop">status</span>: <span class="k-str">"Open to SDE &amp; Data Roles"</span>,
+  <span class="k-prop">languages</span>: [<span class="k-str">"Python"</span>, <span class="k-str">"Java"</span>, <span class="k-str">"C"</span>, <span class="k-str">"JavaScript"</span>, <span class="k-str">"SQL"</span>],
+  <span class="k-prop">specialization</span>: [<span class="k-str">"Computer Vision"</span>, <span class="k-str">"CNNs"</span>, <span class="k-str">"Prompt Eng"</span>, <span class="k-str">"Analytics"</span>],
+  <span class="k-prop">philosophy</span>: <span class="k-str">"Clean Code, High Performance &amp; Human-Centric AI"</span>
+};`,
+    skills: `{
+  <span class="k-prop">"core_languages"</span>: [<span class="k-str">"Python"</span>, <span class="k-str">"Java"</span>, <span class="k-str">"C"</span>, <span class="k-str">"JavaScript"</span>, <span class="k-str">"SQL"</span>],
+  <span class="k-prop">"ai_and_vision"</span>: [<span class="k-str">"OpenCV"</span>, <span class="k-str">"Custom 4-Layer CNN"</span>, <span class="k-str">"Prompt Engineering"</span>],
+  <span class="k-prop">"data_analytics"</span>: [<span class="k-str">"Pandas"</span>, <span class="k-str">"NumPy"</span>, <span class="k-str">"Scikit-Learn"</span>, <span class="k-str">"Predictive Models"</span>],
+  <span class="k-prop">"frameworks_tools"</span>: [<span class="k-str">"Flask"</span>, <span class="k-str">"Git"</span>, <span class="k-str">"GitHub"</span>, <span class="k-str">"VS Code"</span>]
+}`,
+    architecture: `<span class="k-kw">class</span> <span class="k-fn">VisionPipeline</span>:
+    <span class="k-kw">def</span> <span class="k-fn">__init__</span>(self, model_weights):
+        self.model = load_custom_cnn(model_weights)
+        self.camera = cv2.VideoCapture(<span class="k-num">0</span>)
+        
+    <span class="k-kw">def</span> <span class="k-fn">stream_inference</span>(self):
+        <span class="k-kw">while</span> True:
+            ret, frame = self.camera.read()
+            gesture = self.model.predict(frame)
+            <span class="k-kw">yield</span> render_hud(frame, gesture)`
+  };
+
+  const termContainer = document.getElementById('term-content');
+  termTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      termTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      const pane = tab.getAttribute('data-pane');
+      if (termContainer && codePanes[pane]) {
+        termContainer.innerHTML = `<pre><code>${codePanes[pane]}</code></pre>`;
+      }
+    });
+  });
+
+  // 6. Skills Filtering
+  const filterBtns = document.querySelectorAll('.tab-pill-btn');
+  const skillTiles = document.querySelectorAll('.skill-bento-tile');
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
+      const category = btn.getAttribute('data-category');
 
-      const filter = btn.getAttribute('data-filter');
-      skillCards.forEach((card) => {
-        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.4s ease';
+      skillTiles.forEach((tile) => {
+        if (category === 'all' || tile.getAttribute('data-category') === category) {
+          tile.style.display = 'flex';
         } else {
-          card.style.display = 'none';
+          tile.style.display = 'none';
         }
       });
     });
   });
 
-  // 5. 3D Card Tilt Effect
-  const tiltCards = document.querySelectorAll('.portrait-frame, .project-card');
-  tiltCards.forEach((card) => {
+  // 7. Theme Accent Switcher
+  window.setTheme = function (themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+    showToast(`Switched theme to ${themeName.toUpperCase()}`);
+  };
+
+  // 8. 3D Card Tilt on Hover
+  const bentoCards = document.querySelectorAll('.bento-card, .portrait-glow-ring');
+  bentoCards.forEach((card) => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -4;
+      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 4;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
     });
-
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
   });
 
-  // 6. Copy Email to Clipboard
+  // 9. Copy Real Email to Clipboard
   window.copyEmail = function () {
-    const email = 'shauryaawasthi7007@gmail.com';
+    const email = 'shauryapratapsingh723@gmail.com';
     navigator.clipboard.writeText(email).then(() => {
-      showToast('Email copied to clipboard!');
+      showToast('shauryapratapsingh723@gmail.com copied!');
     }).catch(() => {
-      showToast('shauryaawasthi7007@gmail.com');
+      prompt('Copy email:', email);
     });
   };
 
   function showToast(msg) {
-    const toast = document.getElementById('toast');
+    const toast = document.getElementById('toast-notification');
     if (!toast) return;
     toast.textContent = `✓ ${msg}`;
-    toast.classList.add('show');
+    toast.classList.add('active');
     setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
+      toast.classList.remove('active');
+    }, 2800);
   }
 
-  // 7. Mobile Navbar Toggle
-  const toggleBtn = document.querySelector('.mobile-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-    });
-    document.querySelectorAll('.nav-link').forEach((link) => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-      });
-    });
-  }
+  // 10. Quick Form Mailto Handler
+  window.handleContactSubmit = function (e) {
+    e.preventDefault();
+    const name = document.getElementById('sender-name')?.value || 'Recruiter/Peer';
+    const email = document.getElementById('sender-email')?.value || '';
+    const message = document.getElementById('sender-message')?.value || '';
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const body = encodeURIComponent(`Hi Shaurya,\n\n${message}\n\nFrom: ${name} (${email})`);
+    window.location.href = `mailto:shauryapratapsingh723@gmail.com?subject=${subject}&body=${body}`;
+  };
 });

@@ -46,4 +46,4 @@ An ultra-premium, responsive, high-performance developer portfolio built with mo
 - **Author:** Shaurya Pratap Singh
 - **GitHub:** [@Shauryaaaa07](https://github.com/Shauryaaaa07)
 - **LinkedIn:** [linkedin.com/in/shauryapratap7](https://www.linkedin.com/in/shauryapratap7)
-- **Email:** shauryaawasthi7007@gmail.com
+- **Email:** shauryapratapsingh723@gmail.com
